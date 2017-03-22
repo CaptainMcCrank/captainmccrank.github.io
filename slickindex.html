@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slick Playground</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+  <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <section id="test" class="center slider" style="display:none">
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Logo_for_the_new_Retalix_Brand.jpg?text=1" width="70" height="75">
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Youtube_icon.svg/256px-Youtube_icon.svg.png?text=2" width="70" height="75">
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Adblockplus_icon.svg/256px-Adblockplus_icon.svg.png?text=3" width="70" height="75">
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Wikipedia-iconsdaa.png?text=1" width="70" height="75">
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Amazon-icon.png?text=2" width="70" height="75">
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Cyrillic_%D0%92.svg?text=3" width="70" height="75">
+    </div>
+
+
+  </section>
+  <button type="button" onclick="ShowDiv()">Show Div</button>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+      $(".center").slick({
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      });
+    });
+ </script>
+ <script type="text/javascript">
+function ShowDiv() {
+    document.getElementById("test").style.display = "block";
+}
+</script>
+
+</body>
+</html>
