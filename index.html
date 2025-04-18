@@ -1,85 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Slick Playground</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css">
-  <style type="text/css">
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    .slider {
-        width: 50%;
-        margin: 100px auto;
-    }
-
-    .slick-slide {
-      margin: 0px 20px;
-    }
-
-    .slick-slide img {
-      width: 100%;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-        color: black;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firmware Builder Containers</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --accent-color: #58a6ff;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #8b949e;
+            font-weight: 400;
+        }
+        
+        .repo-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .repo-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .repo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        
+        .repo-card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .repo-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+        
+        .repo-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .repo-desc {
+            font-size: 0.9rem;
+            color: #8b949e;
+        }
+        
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: #8b949e;
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .repo-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
-
-  <section id="test" class="center slider" style="display:none">
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Logo_for_the_new_Retalix_Brand.jpg?text=1" width="70" height="75">
-    </div>
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Youtube_icon.svg/256px-Youtube_icon.svg.png?text=2" width="70" height="75">
-    </div>
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Adblockplus_icon.svg/256px-Adblockplus_icon.svg.png?text=3" width="70" height="75">
-    </div>
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Wikipedia-iconsdaa.png?text=1" width="70" height="75">
-    </div>
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Amazon-icon.png?text=2" width="70" height="75">
-    </div>
-    <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Cyrillic_%D0%92.svg?text=3" width="70" height="75">
-    </div>
-
-
-  </section>
-  <button type="button" onclick="ShowDiv()">Show Div</button>
-
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-  <script type="text/javascript">
-    $(document).on('ready', function() {
-      $(".center").slick({
-        dots: true,
-        infinite: true,
-        centerMode: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      });
-    });
- </script>
- <script type="text/javascript">
-function ShowDiv() {
-    document.getElementById("test").style.display = "block";
-}
-</script>
-
+    <header>
+        <h1>Firmware Builder Containers</h1>
+        <p class="subtitle">A collection of firmware recipes that can be built using my FirmwareBuilderContainers</p>
+    </header>
+    
+    <main>
+        <div class="repo-list">
+            <div class="repo-card">
+                <h2>Community WiFi Portal</h2>
+                <p class="repo-desc">Set up an instant community WiFi portal for public access</p>
+                <a href="https://github.com/CaptainMcCrank/Instant_Community_Wifi_Portal" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>Transparent Bridge (Eth to WiFi)</h2>
+                <p class="repo-desc">Create a transparent bridge from Ethernet to WiFi connections</p>
+                <a href="https://github.com/CaptainMcCrank/Transparent_Bridge_Eth_to_Wifi" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>Learn Linux Networking</h2>
+                <p class="repo-desc">Resources to learn Linux networking and ethical hacking</p>
+                <a href="https://github.com/CaptainMcCrank/Learn_Linux_Networking_And_Hacking" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>Builder Hotspot</h2>
+                <p class="repo-desc">Create a custom builder hotspot for network testing</p>
+                <a href="https://github.com/CaptainMcCrank/BuilderHotspot" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>Ethernet Web Server</h2>
+                <p class="repo-desc">Deploy a lightweight web server over Ethernet connections</p>
+                <a href="https://github.com/CaptainMcCrank/Eth_WebServer" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>Transparent Bridge (WiFi to Eth)</h2>
+                <p class="repo-desc">Create a transparent bridge from WiFi to Ethernet connections</p>
+                <a href="https://github.com/CaptainMcCrank/FW_Transparent_Bridge_Wifi_to_Eth" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>NAT Firewall with DNSMASQ</h2>
+                <p class="repo-desc">Set up a NAT firewall with DNS management using DNSMASQ</p>
+                <a href="https://github.com/CaptainMcCrank/NAT-Firewall-with-DNSMASQ" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>Mobile Catcher Hotspot</h2>
+                <p class="repo-desc">Deploy a hotspot optimized for mobile device connectivity</p>
+                <a href="https://github.com/CaptainMcCrank/MobileCatcherHotspot" target="_blank">View Repository</a>
+            </div>
+            
+            <div class="repo-card">
+                <h2>Internet In A Box</h2>
+                <p class="repo-desc">Self-contained internet solution for North America</p>
+                <a href="https://github.com/CaptainMcCrank/NA_Internet_In_A_Box" target="_blank">View Repository</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Firmware Builder Containers</p>
+    </footer>
 </body>
 </html>
